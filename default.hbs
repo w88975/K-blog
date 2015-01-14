@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="http://apps.bdimg.com/libs/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- 可选的Bootstrap主题文件（一般不使用） -->
+<script src="http://apps.bdimg.com/libs/bootstrap/3.0.3/css/bootstrap-theme.min.css"></script>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://apps.bdimg.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    {{! Everything else gets inserted here }}
+
+       <nav class="navbar navbar-inverse" role="navigation" style="z-index:9999;margin-bottom: 0px;border-radius: 0px;">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle" style="position: absolute;
+padding: 9px 10px;
+margin-top: 8px;
+left: 50%;
+margin-left: -9px;
+margin-bottom: 8px;
+background-color: transparent;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;" data-toggle="collapse" data-target="#example-navbar-collapse">
+			<span class="sr-only"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{@blog.url}}" style="font-size: 14px;">一本正经的胡说八道</a>
+			</div>
+			<div class="collapse navbar-collapse" id="example-navbar-collapse">
+				<ul class="nav navbar-nav">
+				<li class="active"><a href="{{@blog.url}}">博客</a></li>
+				<li><a href="{{@blog.url}}/about">关于</a></li>
+			</ul>
+			</div>
+		</nav>
+
+
+    {{{body}}}
+    <footer class="site-footer content">
+        <div class="content-inner">
+            <a rel="nofollow" class="subscribe icon-feed" href="http://weibo.com/lovepox"><span class="tooltip">Sina Weibo!</span></a>
+                 <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
+                 <section class="poweredby">Proudly published with <span class="icon-ghost">Ghost</span></section>
+        </div>
+    </footer>
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+</body>
+</html>

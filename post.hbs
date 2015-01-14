@@ -1,0 +1,44 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+<nav class="main-nav content">
+    <div class="content-inner">
+        <a href="{{@blog.url}}" class="current-nav-link">博客</a>
+        <a href="{{@blog.url}}/about">关于</a>
+    </div>
+</nav>
+
+<div class="clearfix">
+    {{! The main content area on the homepage }}
+    <main class="content clearfix" role="main">
+        <div class="content-inner">
+
+            <article class="single-post {{post_class}}">
+                <div class="single-post-content">
+                {{! Everything inside the #post tags pulls data from the post }}
+                {{#post}}
+                    <div class="post-text">
+                        <span class="post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{tags prefix="on " separator=" | "}}</span>
+                        <h1 class="post-title">{{{title}}}</h1>
+                        <section class="post-content-content">
+                            {{content}}
+                        </section>
+                        <footer class="post-footer">
+                            <section class="author">
+                                <h4>{{author.name}}</h4>
+                                <p>{{author.bio}}</p>
+                                <ul class="author-meta clearfix">
+                                    {{#if author.location}}<li>{{author.location}}</li>{{/if}}
+                                    {{#if author.website}}<li><a rel="nofollow" href="{{author.website}}">{{author.website}}</a></li>{{/if}}
+                                </ul>
+                                <a rel="nofollow" class="back2home" href="{{@blog.url}}">返回首页</a>
+                            </section>
+                        </footer>
+                    </div>
+                {{/post}}
+                </div>
+            </article>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,79 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The big featured header on the homepage, with the site logo and description }}
+{{! The main content area on the homepage }}
+
+<nav class="main-nav content">
+    <div class="content-inner">
+        <a href="{{@blog.url}}" class="first-nav-link current-nav-link">博客</a>
+        <a href="{{@blog.url}}/about">关于</a>
+    </div>
+</nav>
+<div class="clearfix">
+    {{! The main content area on the homepage }}
+    <main class="content clearfix" role="main">
+        <div class="content-inner">
+            <header class="tag-archive-header clearfix">
+                <h1>{{tag.name}}</h1>
+            </header>
+            {{! Each post will be output using this markup }}
+            {{#foreach posts}}
+                {{#if @first}}
+                    <article class="{{post_class}} first-post">
+                        <div class="dogear"></div>
+                        <div class="post-content">
+                            <div class="post-image">
+                                <a rel="nofollow" href="{{url absolute='true'}}">
+                                {{content words="0"}}
+                                </a>
+                            </div>
+                            <div class="post-text">
+                                <header class="post-header">
+                                    <h2 class="post-title"><a href="{{url absolute='true'}}">{{{title}}}</a></h2>
+                                </header>
+                                <section class="post-excerpt">
+                                    <p>{{excerpt characters="480"}}&hellip;</p>
+                                </section>
+                                <footer class="index-post-footer">
+                                    <span class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{tags prefix="on "}}</span>
+                                </footer>
+                            </div>
+                            <div class="post-mask"></div>
+                        </div>
+                    </article>
+                {{else}}
+                    <article class="{{post_class}}">
+                        <div class="dogear"></div>
+                        <div class="post-content">
+                            <div class="post-image">
+                                <a rel="nofollow" href="{{url absolute='true'}}">
+                                {{content words="0"}}
+                                </a>
+                            </div>
+                            <div class="post-text">
+                                <header class="post-header">
+                                    <h2 class="post-title"><a href="{{url absolute='true'}}">{{{title}}}</a></h2>
+                                </header>
+                                <section class="post-excerpt">
+                                    <p>{{excerpt characters="250"}}&hellip;</p>
+                                </section>
+                                <footer class="index-post-footer">
+                                    <span class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{tags prefix="on"}}</span>
+                                </footer>
+                            </div>
+                            <div class="post-mask"></div>
+                        </div>
+                    </article>
+                {{/if}}
+            {{/foreach}}
+
+            {{!! After all the posts, we have the previous/next pagination links }}
+            <div class="pagination-out">
+                {{pagination}}
+            </div>
+        </div>
+    </main>
+</div>
