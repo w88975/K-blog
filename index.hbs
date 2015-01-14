@@ -8,10 +8,7 @@
     <div class="content-inner">
         <a href="{{@blog.url}}" class="first-nav-link current-nav-link">博客</a>
         <a href="{{@blog.url}}/about">关于</a>
-        {{#foreach tags}}
-            1
-        {{/foreach}}
-
+        {{tags prefix="on "}}
     </div>
 </nav>
 <div class="clearfix">
