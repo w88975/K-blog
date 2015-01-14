@@ -8,7 +8,9 @@
     <div class="content-inner">
         <a href="{{@blog.url}}" class="first-nav-link current-nav-link">博客</a>
         <a href="{{@blog.url}}/about">关于</a>
-        {{tags separator=" | "}} 
+        <a>{{tags separator=" | "}} {{tags}} {{tag.name}}   {{#tags}}
+            <li>{{name}}</li>
+            {{/tags}} </a>
     </div>
 </nav>
 <div class="clearfix">
