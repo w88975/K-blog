@@ -8,6 +8,10 @@
     <div class="content-inner">
         <a href="{{@blog.url}}" class="first-nav-link current-nav-link">博客</a>
         <a href="{{@blog.url}}/about">关于</a>
+        {{#foreach tags}}
+            1
+        {{/foreach}}
+
     </div>
 </nav>
 <div class="clearfix">
@@ -46,7 +50,7 @@
                         <div class="post-content">
                             <div class="post-image">
                                 <a rel="nofollow" href="{{url absolute='true'}}">
-                                    {{content words="0"}} 
+                                    {{content words="0"}}
                                 </a>
                             </div>
                             <div class="post-text">
